@@ -1,0 +1,1419 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>DCGAN Tutorial &mdash; PyTorch Tutorials 0.4.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reinforcement Learning (DQN) Tutorial" href="../intermediate/reinforcement_q_learning.html" />
+    <link rel="prev" title="Translation with a Sequence to Sequence Network and Attention" href="../intermediate/seq2seq_translation_tutorial.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://pytorch.org/" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://pytorch.org/get-started">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/features">Features</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/ecosystem">Ecosystem</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/blog/">Blog</a>
+          </li>
+
+          <li class="active">
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pytorch/pytorch">Github</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+                <div class="version">
+                  0.4.1
+                </div>
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="deep_learning_60min_blitz.html">Deep Learning with PyTorch: A 60 Minute Blitz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_loading_tutorial.html">Data Loading and Processing Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_with_examples.html">Learning PyTorch with Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_learning_tutorial.html">Transfer Learning Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_seq2seq_hybrid_frontend_tutorial.html">Deploying a Seq2Seq Model with the Hybrid Frontend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_loading_models.html">Saving and Loading Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="finetuning_torchvision_models_tutorial.html">Finetuning Torchvision Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/spatial_transformer_tutorial.html">Spatial Transformer Networks Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/neural_style_tutorial.html">Neural Transfer Using PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fgsm_tutorial.html">Adversarial Example Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/super_resolution_with_caffe2.html">Transfering a Model from PyTorch to Caffe2 and Mobile using ONNX</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chatbot_tutorial.html">Chatbot Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/char_rnn_generation_tutorial.html">Generating Names with a Character-Level RNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/char_rnn_classification_tutorial.html">Classifying Names with a Character-Level RNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_learning_nlp_tutorial.html">Deep Learning for NLP with Pytorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/seq2seq_translation_tutorial.html">Translation with a Sequence to Sequence Network and Attention</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Generative</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DCGAN Tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reinforcement Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/reinforcement_q_learning.html">Reinforcement Learning (DQN) Tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending PyTorch</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/numpy_extensions_tutorial.html">Creating Extensions Using numpy and scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/cpp_extension.html">Custom C++ and CUDA Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/dist_tuto.html">Writing Distributed Applications with PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/ONNXLive.html">ONNX Live Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/cpp_export.html">Loading a PyTorch Model in C++</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>DCGAN Tutorial</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/beginner/dcgan_faces_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-beginner-dcgan-faces-tutorial-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="dcgan-tutorial">
+<span id="sphx-glr-beginner-dcgan-faces-tutorial-py"></span><h1>DCGAN Tutorial<a class="headerlink" href="#dcgan-tutorial" title="Permalink to this headline">¶</a></h1>
+<p><strong>Author</strong>: <a class="reference external" href="https://github.com/inkawhich">Nathan Inkawhich</a></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial will give an introduction to DCGANs through an example. We
+will train a generative adversarial network (GAN) to generate new
+celebrities after showing it pictures of many real celebrities. Most of
+the code here is from the dcgan implementation in
+<a class="reference external" href="https://github.com/pytorch/examples">pytorch/examples</a>, and this
+document will give a thorough explanation of the implementation and shed
+light on how and why this model works. But don’t worry, no prior
+knowledge of GANs is required, but it may require a first-timer to spend
+some time reasoning about what is actually happening under the hood.
+Also, for the sake of time it will help to have a GPU, or two. Lets
+start from the beginning.</p>
+</div>
+<div class="section" id="generative-adversarial-networks">
+<h2>Generative Adversarial Networks<a class="headerlink" href="#generative-adversarial-networks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-a-gan">
+<h3>What is a GAN?<a class="headerlink" href="#what-is-a-gan" title="Permalink to this headline">¶</a></h3>
+<p>GANs are a framework for teaching a DL model to capture the training
+data’s distribution so we can generate new data from that same
+distribution. GANs were invented by Ian Goodfellow in 2014 and first
+described in the paper <a class="reference external" href="https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf">Generative Adversarial
+Nets</a>.
+They are made of two distinct models, a <em>generator</em> and a
+<em>discriminator</em>. The job of the generator is to spawn ‘fake’ images that
+look like the training images. The job of the discriminator is to look
+at an image and output whether or not it is a real training image or a
+fake image from the generator. During training, the generator is
+constantly trying to outsmart the discriminator by generating better and
+better fakes, while the discriminator is working to become a better
+detective and correctly classify the real and fake images. The
+equilibrium of this game is when the generator is generating perfect
+fakes that look as if they came directly from the training data, and the
+discriminator is left to always guess at 50% confidence that the
+generator output is real or fake.</p>
+<p>Now, lets define some notation to be used throughout tutorial starting
+with the discriminator. Let <span class="math notranslate nohighlight">\(x\)</span> be data representing an image.
+<span class="math notranslate nohighlight">\(D(x)\)</span> is the discriminator network which outputs the (scalar)
+probability that <span class="math notranslate nohighlight">\(x\)</span> came from training data rather than the
+generator. Here, since we are dealing with images the input to
+<span class="math notranslate nohighlight">\(D(x)\)</span> is an image of HWC size 3x64x64. Intuitively, <span class="math notranslate nohighlight">\(D(x)\)</span>
+should be HIGH when <span class="math notranslate nohighlight">\(x\)</span> comes from training data and LOW when
+<span class="math notranslate nohighlight">\(x\)</span> comes from the generator. <span class="math notranslate nohighlight">\(D(x)\)</span> can also be thought of
+as a traditional binary classifier.</p>
+<p>For the generator’s notation, let <span class="math notranslate nohighlight">\(z\)</span> be a latent space vector
+sampled from a standard normal distribution. <span class="math notranslate nohighlight">\(G(z)\)</span> represents the
+generator function which maps the latent vector <span class="math notranslate nohighlight">\(z\)</span> to data-space.
+The goal of <span class="math notranslate nohighlight">\(G\)</span> is to estimate the distribution that the training
+data comes from (<span class="math notranslate nohighlight">\(p_{data}\)</span>) so it can generate fake samples from
+that estimated distribution (<span class="math notranslate nohighlight">\(p_g\)</span>).</p>
+<p>So, <span class="math notranslate nohighlight">\(D(G(z))\)</span> is the probability (scalar) that the output of the
+generator <span class="math notranslate nohighlight">\(G\)</span> is a real image. As described in <a class="reference external" href="https://papers.nips.cc/paper/5423-generative-adversarial-nets.pdf">Goodfellow’s
+paper</a>,
+<span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(G\)</span> play a minimax game in which <span class="math notranslate nohighlight">\(D\)</span> tries to
+maximize the probability it correctly classifies reals and fakes
+(<span class="math notranslate nohighlight">\(logD(x)\)</span>), and <span class="math notranslate nohighlight">\(G\)</span> tries to minimize the probability that
+<span class="math notranslate nohighlight">\(D\)</span> will predict its outputs are fake (<span class="math notranslate nohighlight">\(log(1-D(G(x)))\)</span>).
+From the paper, the GAN loss function is</p>
+<div class="math notranslate nohighlight">
+\[\underset{G}{\text{min}} \underset{D}{\text{max}}V(D,G) = \mathbb{E}_{x\sim p_{data}(x)}\big[logD(x)\big] + \mathbb{E}_{z\sim p_{z}(z)}\big[log(1-D(G(x)))\big]\]</div>
+<p>In theory, the solution to this minimax game is where
+<span class="math notranslate nohighlight">\(p_g = p_{data}\)</span>, and the discriminator guesses randomly if the
+inputs are real or fake. However, the convergence theory of GANs is
+still being actively researched and in reality models do not always
+train to this point.</p>
+</div>
+<div class="section" id="what-is-a-dcgan">
+<h3>What is a DCGAN?<a class="headerlink" href="#what-is-a-dcgan" title="Permalink to this headline">¶</a></h3>
+<p>A DCGAN is a direct extension of the GAN described above, except that it
+explicitly uses convolutional and convolutional-transpose layers in the
+discriminator and generator, respectively. It was first described by
+Radford et. al.&nbsp;in the paper <a class="reference external" href="https://arxiv.org/pdf/1511.06434.pdf">Unsupervised Representation Learning With
+Deep Convolutional Generative Adversarial
+Networks</a>. The discriminator
+is made up of strided
+<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.Conv2d">convolution</a>
+layers, <a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.BatchNorm2d">batch
+norm</a>
+layers, and
+<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.LeakyReLU">LeakyReLU</a>
+activations. The input is a 3x64x64 input image and the output is a
+scalar probability that the input is from the real data distribution.
+The generator is comprised of
+<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.ConvTranspose2d">convolutional-transpose</a>
+layers, batch norm layers, and
+<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#relu">ReLU</a> activations. The
+input is a latent vector, <span class="math notranslate nohighlight">\(z\)</span>, that is drawn from a standard
+normal distribution and the output is a 3x64x64 RGB image. The strided
+conv-transpose layers allow the latent vector to be transformed into a
+volume with the same shape as an image. In the paper, the authors also
+give some tips about how to setup the optimizers, how to calculate the
+loss functions, and how to initialize the model weights, all of which
+will be explained in the coming sections.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="c1">#%matplotlib inline</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="kn">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.parallel</span>
+<span class="kn">import</span> <span class="nn">torch.backends.cudnn</span> <span class="kn">as</span> <span class="nn">cudnn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="kn">as</span> <span class="nn">optim</span>
+<span class="kn">import</span> <span class="nn">torch.utils.data</span>
+<span class="kn">import</span> <span class="nn">torchvision.datasets</span> <span class="kn">as</span> <span class="nn">dset</span>
+<span class="kn">import</span> <span class="nn">torchvision.transforms</span> <span class="kn">as</span> <span class="nn">transforms</span>
+<span class="kn">import</span> <span class="nn">torchvision.utils</span> <span class="kn">as</span> <span class="nn">vutils</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.animation</span> <span class="kn">as</span> <span class="nn">animation</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="c1"># Set random seem for reproducibility</span>
+<span class="n">manualSeed</span> <span class="o">=</span> <span class="mi">999</span>
+<span class="c1">#manualSeed = random.randint(1, 10000) # use if you want new results</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Random Seed: &quot;</span><span class="p">,</span> <span class="n">manualSeed</span><span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">manualSeed</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">manualSeed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Random Seed:  999
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<p>Let’s define some inputs for the run:</p>
+<ul class="simple">
+<li><strong>dataroot</strong> - the path to the root of the dataset folder. We will
+talk more about the dataset in the next section</li>
+<li><strong>workers</strong> - the number of worker threads for loading the data with
+the DataLoader</li>
+<li><strong>batch_size</strong> - the batch size used in training. The DCGAN paper
+uses a batch size of 128</li>
+<li><strong>image_size</strong> - the spatial size of the images used for training.
+This implementation defaults to 64x64. If another size is desired,
+the structures of D and G must be changed. See
+<a class="reference external" href="https://github.com/pytorch/examples/issues/70">here</a> for more
+details</li>
+<li><strong>nc</strong> - number of color channels in the input images. For color
+images this is 3</li>
+<li><strong>nz</strong> - length of latent vector</li>
+<li><strong>ngf</strong> - relates to the depth of feature maps carried through the
+generator</li>
+<li><strong>ndf</strong> - sets the depth of feature maps propagated through the
+discriminator</li>
+<li><strong>num_epochs</strong> - number of training epochs to run. Training for
+longer will probably lead to better results but will also take much
+longer</li>
+<li><strong>lr</strong> - learning rate for training. As described in the DCGAN paper,
+this number should be 0.0002</li>
+<li><strong>beta1</strong> - beta1 hyperparameter for Adam optimizers. As described in
+paper, this number should be 0.5</li>
+<li><strong>ngpu</strong> - number of GPUs available. If this is 0, code will run in
+CPU mode. If this number is greater than 0 it will run on that number
+of GPUs</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Root directory for dataset</span>
+<span class="n">dataroot</span> <span class="o">=</span> <span class="s2">&quot;/home/ubuntu/facebook/datasets/celeba&quot;</span>
+
+<span class="c1"># Number of workers for dataloader</span>
+<span class="n">workers</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># Batch size during training</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="c1"># Spatial size of training images. All images will be resized to this</span>
+<span class="c1">#   size using a transformer.</span>
+<span class="n">image_size</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="c1"># Number of channels in the training images. For color images this is 3</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Size of z latent vector (i.e. size of generator input)</span>
+<span class="n">nz</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Size of feature maps in generator</span>
+<span class="n">ngf</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="c1"># Size of feature maps in discriminator</span>
+<span class="n">ndf</span> <span class="o">=</span> <span class="mi">64</span>
+
+<span class="c1"># Number of training epochs</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Learning rate for optimizers</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">0.0002</span>
+
+<span class="c1"># Beta1 hyperparam for Adam optimizers</span>
+<span class="n">beta1</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="c1"># Number of GPUs available. Use 0 for CPU mode.</span>
+<span class="n">ngpu</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial we will use the <a class="reference external" href="http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html">Celeb-A Faces
+dataset</a> which can
+be downloaded at the linked site, or in <a class="reference external" href="https://drive.google.com/drive/folders/0B7EVK8r0v71pTUZsaXdaSnZBZzg">Google
+Drive</a>.
+The dataset will download as a file named <em>img_align_celeba.zip</em>. Once
+downloaded, create a directory named <em>celeba</em> and extract the zip file
+into that directory. Then, set the <em>dataroot</em> input for this notebook to
+the <em>celeba</em> directory you just created. The resulting directory
+structure should be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">celeba</span>
+    <span class="o">-&gt;</span> <span class="n">img_align_celeba</span>
+        <span class="o">-&gt;</span> <span class="mf">188242.</span><span class="n">jpg</span>
+        <span class="o">-&gt;</span> <span class="mf">173822.</span><span class="n">jpg</span>
+        <span class="o">-&gt;</span> <span class="mf">284702.</span><span class="n">jpg</span>
+        <span class="o">-&gt;</span> <span class="mf">537394.</span><span class="n">jpg</span>
+           <span class="o">...</span>
+</pre></div>
+</div>
+<p>This is an important step because we will be using the ImageFolder
+dataset class, which requires there to be subdirectories in the
+dataset’s root folder. Now, we can create the dataset, create the
+dataloader, set the device to run on, and finally visualize some of the
+training data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can use an image folder dataset the way we have it setup.</span>
+<span class="c1"># Create the dataset</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">ImageFolder</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">dataroot</span><span class="p">,</span>
+                           <span class="n">transform</span><span class="o">=</span><span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+                               <span class="n">transforms</span><span class="o">.</span><span class="n">Resize</span><span class="p">(</span><span class="n">image_size</span><span class="p">),</span>
+                               <span class="n">transforms</span><span class="o">.</span><span class="n">CenterCrop</span><span class="p">(</span><span class="n">image_size</span><span class="p">),</span>
+                               <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+                               <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)),</span>
+                           <span class="p">]))</span>
+<span class="c1"># Create the dataloader</span>
+<span class="n">dataloader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                         <span class="n">shuffle</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">num_workers</span><span class="o">=</span><span class="n">workers</span><span class="p">)</span>
+
+<span class="c1"># Decide which device we want to run on</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda:0&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="ow">and</span> <span class="n">ngpu</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot some training images</span>
+<span class="n">real_batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">dataloader</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Training Images&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">vutils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">real_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)[:</span><span class="mi">64</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
+</pre></div>
+</div>
+<img alt="../_images/sphx_glr_dcgan_faces_tutorial_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_dcgan_faces_tutorial_001.png" />
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>With our input parameters set and the dataset prepared, we can now get
+into the implementation. We will start with the weigth initialization
+strategy, then talk about the generator, discriminator, loss functions,
+and training loop in detail.</p>
+<div class="section" id="weight-initialization">
+<h3>Weight Initialization<a class="headerlink" href="#weight-initialization" title="Permalink to this headline">¶</a></h3>
+<p>From the DCGAN paper, the authors specify that all model weights shall
+be randomly initialized from a Normal distribution with mean=0,
+stdev=0.2. The <code class="docutils literal notranslate"><span class="pre">weights_init</span></code> function takes an initialized model as
+input and reinitializes all convolutional, convolutional-transpose, and
+batch normalization layers to meet this criteria. This function is
+applied to the models immediately after initialization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># custom weights initialization called on netG and netD</span>
+<span class="k">def</span> <span class="nf">weights_init</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">classname</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">if</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Conv&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">classname</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;BatchNorm&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant_</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generator">
+<h3>Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h3>
+<p>The generator, <span class="math notranslate nohighlight">\(G\)</span>, is designed to map the latent space vector
+(<span class="math notranslate nohighlight">\(z\)</span>) to data-space. Since our data are images, converting
+<span class="math notranslate nohighlight">\(z\)</span> to data-space means ultimately creating a RGB image with the
+same size as the training images (i.e.&nbsp;3x64x64). In practice, this is
+accomplished through a series of strided two dimensional convolutional
+transpose layers, each paired with a 2d batch norm layer and a relu
+activation. The output of the generator is fed through a tanh function
+to return it to the input data range of <span class="math notranslate nohighlight">\([-1,1]\)</span>. It is worth
+noting the existence of the batch norm functions after the
+conv-transpose layers, as this is a critical contribution of the DCGAN
+paper. These layers help with the flow of gradients during training. An
+image of the generator from the DCGAN paper is shown below.</p>
+<div class="figure">
+<img alt="dcgan_generator" src="../_images/dcgan_generator.png" />
+</div>
+<p>Notice, the how the inputs we set in the input section (<em>nz</em>, <em>ngf</em>, and
+<em>nc</em>) influence the generator architecture in code. <em>nz</em> is the length
+of the z input vector, <em>ngf</em> relates to the size of the feature maps
+that are propagated through the generator, and <em>nc</em> is the number of
+channels in the output image (set to 3 for RGB images). Below is the
+code for the generator.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generator Code</span>
+
+<span class="k">class</span> <span class="nc">Generator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ngpu</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Generator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ngpu</span> <span class="o">=</span> <span class="n">ngpu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># input is Z, going into a convolution</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span> <span class="n">nz</span><span class="p">,</span> <span class="n">ngf</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ngf</span> <span class="o">*</span> <span class="mi">8</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ngf*8) x 4 x 4</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span><span class="n">ngf</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="n">ngf</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ngf</span> <span class="o">*</span> <span class="mi">4</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ngf*4) x 8 x 8</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span> <span class="n">ngf</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ngf</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ngf</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ngf*2) x 16 x 16</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span> <span class="n">ngf</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ngf</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ngf</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ngf) x 32 x 32</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ConvTranspose2d</span><span class="p">(</span> <span class="n">ngf</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+            <span class="c1"># state size. (nc) x 64 x 64</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, we can instantiate the generator and apply the <code class="docutils literal notranslate"><span class="pre">weights_init</span></code>
+function. Check out the printed model to see how the generator object is
+structured.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the generator</span>
+<span class="n">netG</span> <span class="o">=</span> <span class="n">Generator</span><span class="p">(</span><span class="n">ngpu</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Handle multi-gpu if desired</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ngpu</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">netG</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">netG</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ngpu</span><span class="p">)))</span>
+
+<span class="c1"># Apply the weights_init function to randomly initialize all weights</span>
+<span class="c1">#  to mean=0, stdev=0.2.</span>
+<span class="n">netG</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">weights_init</span><span class="p">)</span>
+
+<span class="c1"># Print the model</span>
+<span class="k">print</span><span class="p">(</span><span class="n">netG</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Generator(
+  (main): Sequential(
+    (0): ConvTranspose2d(100, 512, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace)
+    (3): ConvTranspose2d(512, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): ReLU(inplace)
+    (6): ConvTranspose2d(256, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (7): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (8): ReLU(inplace)
+    (9): ConvTranspose2d(128, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (10): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (11): ReLU(inplace)
+    (12): ConvTranspose2d(64, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (13): Tanh()
+  )
+)
+</pre></div>
+</div>
+</div>
+<div class="section" id="discriminator">
+<h3>Discriminator<a class="headerlink" href="#discriminator" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned, the discriminator, <span class="math notranslate nohighlight">\(D\)</span>, is a binary classification
+network that takes an image as input and outputs a scalar probability
+that the input image is real (as opposed to fake). Here, <span class="math notranslate nohighlight">\(D\)</span> takes
+a 3x64x64 input image, processes it through a series of Conv2d,
+BatchNorm2d, and LeakyReLU layers, and outputs the final probability
+through a Sigmoid activation function. This architecture can be extended
+with more layers if necessary for the problem, but there is significance
+to the use of the strided convolution, BatchNorm, and LeakyReLUs. The
+DCGAN paper mentions it is a good practice to use strided convolution
+rather than pooling to downsample because it lets the network learn its
+own pooling function. Also batch norm and leaky relu functions promote
+healthy gradient flow which is critical for the learning process of both
+<span class="math notranslate nohighlight">\(G\)</span> and <span class="math notranslate nohighlight">\(D\)</span>.</p>
+<p>Discriminator Code</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Discriminator</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ngpu</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Discriminator</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ngpu</span> <span class="o">=</span> <span class="n">ngpu</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># input is (nc) x 64 x 64</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ndf</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ndf) x 32 x 32</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">ndf</span><span class="p">,</span> <span class="n">ndf</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ndf</span> <span class="o">*</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ndf*2) x 16 x 16</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">ndf</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ndf</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ndf</span> <span class="o">*</span> <span class="mi">4</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ndf*4) x 8 x 8</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">ndf</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ndf</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">ndf</span> <span class="o">*</span> <span class="mi">8</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">),</span>
+            <span class="c1"># state size. (ndf*8) x 4 x 4</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">ndf</span> <span class="o">*</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now, as with the generator, we can create the discriminator, apply the
+<code class="docutils literal notranslate"><span class="pre">weights_init</span></code> function, and print the model’s structure.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the Discriminator</span>
+<span class="n">netD</span> <span class="o">=</span> <span class="n">Discriminator</span><span class="p">(</span><span class="n">ngpu</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Handle multi-gpu if desired</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">ngpu</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">netD</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">netD</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ngpu</span><span class="p">)))</span>
+
+<span class="c1"># Apply the weights_init function to randomly initialize all weights</span>
+<span class="c1">#  to mean=0, stdev=0.2.</span>
+<span class="n">netD</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">weights_init</span><span class="p">)</span>
+
+<span class="c1"># Print the model</span>
+<span class="k">print</span><span class="p">(</span><span class="n">netD</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Discriminator(
+  (main): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): LeakyReLU(negative_slope=0.2, inplace)
+    (2): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (3): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (4): LeakyReLU(negative_slope=0.2, inplace)
+    (5): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (6): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): LeakyReLU(negative_slope=0.2, inplace)
+    (8): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (9): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): LeakyReLU(negative_slope=0.2, inplace)
+    (11): Conv2d(512, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+    (12): Sigmoid()
+  )
+)
+</pre></div>
+</div>
+</div>
+<div class="section" id="loss-functions-and-optimizers">
+<h3>Loss Functions and Optimizers<a class="headerlink" href="#loss-functions-and-optimizers" title="Permalink to this headline">¶</a></h3>
+<p>With <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(G\)</span> setup, we can specify how they learn
+through the loss functions and optimizers. We will use the Binary Cross
+Entropy loss
+(<a class="reference external" href="https://pytorch.org/docs/stable/nn.html#torch.nn.BCELoss">BCELoss</a>)
+function which is defined in PyTorch as:</p>
+<div class="math notranslate nohighlight">
+\[\ell(x, y) = L = \{l_1,\dots,l_N\}^\top, \quad l_n = - \left[ y_n \cdot \log x_n + (1 - y_n) \cdot \log (1 - x_n) \right]\]</div>
+<p>Notice how this function provides the calculation of both log components
+in the objective function (i.e. <span class="math notranslate nohighlight">\(log(D(x))\)</span> and
+<span class="math notranslate nohighlight">\(log(1-D(G(z)))\)</span>). We can specify what part of the BCE equation to
+use with the <span class="math notranslate nohighlight">\(y\)</span> input. This is accomplished in the training loop
+which is coming up soon, but it is important to understand how we can
+choose which component we wish to calculate just by changing <span class="math notranslate nohighlight">\(y\)</span>
+(i.e.&nbsp;GT labels).</p>
+<p>Next, we define our real label as 1 and the fake label as 0. These
+labels will be used when calculating the losses of <span class="math notranslate nohighlight">\(D\)</span> and
+<span class="math notranslate nohighlight">\(G\)</span>, and this is also the convention used in the original GAN
+paper. Finally, we set up two separate optimizers, one for <span class="math notranslate nohighlight">\(D\)</span> and
+one for <span class="math notranslate nohighlight">\(G\)</span>. As specified in the DCGAN paper, both are Adam
+optimizers with learning rate 0.0002 and Beta1 = 0.5. For keeping track
+of the generator’s learning progression, we will generate a fixed batch
+of latent vectors that are drawn from a Gaussian distribution
+(i.e.&nbsp;fixed_noise) . In the training loop, we will periodically input
+this fixed_noise into <span class="math notranslate nohighlight">\(G\)</span>, and over the iterations we will see
+images form out of the noise.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize BCELoss function</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCELoss</span><span class="p">()</span>
+
+<span class="c1"># Create batch of latent vectors that we will use to visualize</span>
+<span class="c1">#  the progression of the generator</span>
+<span class="n">fixed_noise</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+<span class="c1"># Establish convention for real and fake labels during training</span>
+<span class="n">real_label</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fake_label</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Setup Adam optimizers for both G and D</span>
+<span class="n">optimizerD</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">netD</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="n">beta1</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">))</span>
+<span class="n">optimizerG</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">netG</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">,</span> <span class="n">betas</span><span class="o">=</span><span class="p">(</span><span class="n">beta1</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="training">
+<h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
+<p>Finally, now that we have all of the parts of the GAN framework defined,
+we can train it. Be mindful that training GANs is somewhat of an art
+form, as incorrect hyperparameter settings lead to mode collapse with
+little explanation of what went wrong. Here, we will closely follow
+Algorithm 1 from Goodfellow’s paper, while abiding by some of the best
+practices shown in <a class="reference external" href="https://github.com/soumith/ganhacks">ganhacks</a>.
+Namely, we will “construct different mini-batches for real and fake”
+images, and also adjust G’s objective function to maximize
+<span class="math notranslate nohighlight">\(logD(G(z))\)</span>. Training is split up into two main parts. Part 1
+updates the Discriminator and Part 2 updates the Generator.</p>
+<p><strong>Part 1 - Train the Discriminator</strong></p>
+<p>Recall, the goal of training the discriminator is to maximize the
+probability of correctly classifying a given input as real or fake. In
+terms of Goodfellow, we wish to “update the discriminator by ascending
+its stochastic gradient”. Practically, we want to maximize
+<span class="math notranslate nohighlight">\(log(D(x)) + log(1-D(G(z)))\)</span>. Due to the separate mini-batch
+suggestion from ganhacks, we will calculate this in two steps. First, we
+will construct a batch of real samples from the training set, forward
+pass through <span class="math notranslate nohighlight">\(D\)</span>, calculate the loss (<span class="math notranslate nohighlight">\(log(D(x))\)</span>), then
+calculate the gradients in a backward pass. Secondly, we will construct
+a batch of fake samples with the current generator, forward pass this
+batch through <span class="math notranslate nohighlight">\(D\)</span>, calculate the loss (<span class="math notranslate nohighlight">\(log(1-D(G(z)))\)</span>),
+and <em>accumulate</em> the gradients with a backward pass. Now, with the
+gradients accumulated from both the all-real and all-fake batches, we
+call a step of the Discriminator’s optimizer.</p>
+<p><strong>Part 2 - Train the Generator</strong></p>
+<p>As stated in the original paper, we want to train the Generator by
+minimizing <span class="math notranslate nohighlight">\(log(1-D(G(z)))\)</span> in an effort to generate better fakes.
+As mentioned, this was shown by Goodfellow to not provide sufficient
+gradients, especially early in the learning process. As a fix, we
+instead wish to maximize <span class="math notranslate nohighlight">\(log(D(G(z)))\)</span>. In the code we accomplish
+this by: classifying the Generator output from Part 1 with the
+Discriminator, computing G’s loss <em>using real labels as GT</em>, computing
+G’s gradients in a backward pass, and finally updating G’s parameters
+with an optimizer step. It may seem counter-intuitive to use the real
+labels as GT labels for the loss function, but this allows us to use the
+<span class="math notranslate nohighlight">\(log(x)\)</span> part of the BCELoss (rather than the <span class="math notranslate nohighlight">\(log(1-x)\)</span>
+part) which is exactly what we want.</p>
+<p>Finally, we will do some statistic reporting and at the end of each
+epoch we will push our fixed_noise batch through the generator to
+visually track the progress of G’s training. The training statistics
+reported are:</p>
+<ul class="simple">
+<li><strong>Loss_D</strong> - discriminator loss calculated as the sum of losses for
+the all real and all fake batches (<span class="math notranslate nohighlight">\(log(D(x)) + log(D(G(z)))\)</span>).</li>
+<li><strong>Loss_G</strong> - generator loss calculated as <span class="math notranslate nohighlight">\(log(D(G(z)))\)</span></li>
+<li><strong>D(x)</strong> - the average output (across the batch) of the discriminator
+for the all real batch. This should start close to 1 then
+theoretically converge to 0.5 when G gets better. Think about why
+this is.</li>
+<li><strong>D(G(z))</strong> - average discriminator outputs for the all fake batch.
+The first number is before D is updated and the second number is
+after D is updated. These numbers should start near 0 and converge to
+0.5 as G gets better. Think about why this is.</li>
+</ul>
+<p><strong>Note:</strong> This step might take a while, depending on how many epochs you
+run and if you removed some data from the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training Loop</span>
+
+<span class="c1"># Lists to keep track of progress</span>
+<span class="n">img_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">G_losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">D_losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">iters</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Starting Training Loop...&quot;</span><span class="p">)</span>
+<span class="c1"># For each epoch</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="c1"># For each batch in the dataloader</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+
+        <span class="c1">############################</span>
+        <span class="c1"># (1) Update D network: maximize log(D(x)) + log(1 - D(G(z)))</span>
+        <span class="c1">###########################</span>
+        <span class="c1">## Train with all-real batch</span>
+        <span class="n">netD</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="c1"># Format batch</span>
+        <span class="n">real_cpu</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">b_size</span> <span class="o">=</span> <span class="n">real_cpu</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">b_size</span><span class="p">,),</span> <span class="n">real_label</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="c1"># Forward pass real batch through D</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">netD</span><span class="p">(</span><span class="n">real_cpu</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Calculate loss on all-real batch</span>
+        <span class="n">errD_real</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="c1"># Calculate gradients for D in backward pass</span>
+        <span class="n">errD_real</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">D_x</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+        <span class="c1">## Train with all-fake batch</span>
+        <span class="c1"># Generate batch of latent vectors</span>
+        <span class="n">noise</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">b_size</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="c1"># Generate fake image batch with G</span>
+        <span class="n">fake</span> <span class="o">=</span> <span class="n">netG</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">fake_label</span><span class="p">)</span>
+        <span class="c1"># Classify all fake batch with D</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">netD</span><span class="p">(</span><span class="n">fake</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Calculate D&#39;s loss on the all-fake batch</span>
+        <span class="n">errD_fake</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="c1"># Calculate the gradients for this batch</span>
+        <span class="n">errD_fake</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">D_G_z1</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="c1"># Add the gradients from the all-real and all-fake batches</span>
+        <span class="n">errD</span> <span class="o">=</span> <span class="n">errD_real</span> <span class="o">+</span> <span class="n">errD_fake</span>
+        <span class="c1"># Update D</span>
+        <span class="n">optimizerD</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="c1">############################</span>
+        <span class="c1"># (2) Update G network: maximize log(D(G(z)))</span>
+        <span class="c1">###########################</span>
+        <span class="n">netG</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">fill_</span><span class="p">(</span><span class="n">real_label</span><span class="p">)</span>  <span class="c1"># fake labels are real for generator cost</span>
+        <span class="c1"># Since we just updated D, perform another forward pass of all-fake batch through D</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">netD</span><span class="p">(</span><span class="n">fake</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Calculate G&#39;s loss based on this output</span>
+        <span class="n">errG</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="c1"># Calculate gradients for G</span>
+        <span class="n">errG</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">D_G_z2</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+        <span class="c1"># Update G</span>
+        <span class="n">optimizerG</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="c1"># Output training stats</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;[</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">][</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">]</span><span class="se">\t</span><span class="s1">Loss_D: </span><span class="si">%.4f</span><span class="se">\t</span><span class="s1">Loss_G: </span><span class="si">%.4f</span><span class="se">\t</span><span class="s1">D(x): </span><span class="si">%.4f</span><span class="se">\t</span><span class="s1">D(G(z)): </span><span class="si">%.4f</span><span class="s1"> / </span><span class="si">%.4f</span><span class="s1">&#39;</span>
+                  <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">),</span>
+                     <span class="n">errD</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">errG</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="n">D_x</span><span class="p">,</span> <span class="n">D_G_z1</span><span class="p">,</span> <span class="n">D_G_z2</span><span class="p">))</span>
+
+        <span class="c1"># Save Losses for plotting later</span>
+        <span class="n">G_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errG</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="n">D_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">errD</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+
+        <span class="c1"># Check how the generator is doing by saving G&#39;s output on fixed_noise</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">iters</span> <span class="o">%</span> <span class="mi">500</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">((</span><span class="n">epoch</span> <span class="o">==</span> <span class="n">num_epochs</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataloader</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                <span class="n">fake</span> <span class="o">=</span> <span class="n">netG</span><span class="p">(</span><span class="n">fixed_noise</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+            <span class="n">img_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vutils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">fake</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+
+        <span class="n">iters</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Starting Training Loop...
+[0/5][0/1583]   Loss_D: 1.3998  Loss_G: 5.4044  D(x): 0.5831    D(G(z)): 0.4753 / 0.0073
+[0/5][50/1583]  Loss_D: 0.3848  Loss_G: 6.7869  D(x): 0.9118    D(G(z)): 0.0027 / 0.0040
+[0/5][100/1583] Loss_D: 2.8428  Loss_G: 17.9450 D(x): 0.3737    D(G(z)): 0.0000 / 0.0000
+[0/5][150/1583] Loss_D: 2.9397  Loss_G: 6.8582  D(x): 0.1815    D(G(z)): 0.0010 / 0.0031
+[0/5][200/1583] Loss_D: 0.8451  Loss_G: 9.9412  D(x): 0.9424    D(G(z)): 0.5035 / 0.0001
+[0/5][250/1583] Loss_D: 0.5743  Loss_G: 6.3768  D(x): 0.9243    D(G(z)): 0.3240 / 0.0044
+[0/5][300/1583] Loss_D: 0.7051  Loss_G: 4.1567  D(x): 0.8064    D(G(z)): 0.2967 / 0.0257
+[0/5][350/1583] Loss_D: 0.9104  Loss_G: 1.3762  D(x): 0.5410    D(G(z)): 0.0783 / 0.3339
+[0/5][400/1583] Loss_D: 0.5389  Loss_G: 3.8563  D(x): 0.8126    D(G(z)): 0.1826 / 0.0470
+[0/5][450/1583] Loss_D: 0.4782  Loss_G: 3.8993  D(x): 0.7549    D(G(z)): 0.0468 / 0.0368
+[0/5][500/1583] Loss_D: 0.4260  Loss_G: 6.3406  D(x): 0.9364    D(G(z)): 0.2664 / 0.0047
+[0/5][550/1583] Loss_D: 0.4464  Loss_G: 4.9784  D(x): 0.8443    D(G(z)): 0.1732 / 0.0160
+[0/5][600/1583] Loss_D: 0.4852  Loss_G: 4.1644  D(x): 0.7750    D(G(z)): 0.0690 / 0.0247
+[0/5][650/1583] Loss_D: 0.2586  Loss_G: 4.4607  D(x): 0.8976    D(G(z)): 0.1082 / 0.0218
+[0/5][700/1583] Loss_D: 0.4145  Loss_G: 3.5035  D(x): 0.7621    D(G(z)): 0.0682 / 0.0608
+[0/5][750/1583] Loss_D: 0.2492  Loss_G: 4.6123  D(x): 0.8911    D(G(z)): 0.0770 / 0.0220
+[0/5][800/1583] Loss_D: 0.3255  Loss_G: 5.1957  D(x): 0.8607    D(G(z)): 0.1329 / 0.0106
+[0/5][850/1583] Loss_D: 0.3800  Loss_G: 5.9003  D(x): 0.9184    D(G(z)): 0.2055 / 0.0095
+[0/5][900/1583] Loss_D: 0.7546  Loss_G: 5.0536  D(x): 0.5691    D(G(z)): 0.0088 / 0.0141
+[0/5][950/1583] Loss_D: 0.3239  Loss_G: 5.7273  D(x): 0.9518    D(G(z)): 0.2106 / 0.0074
+[0/5][1000/1583]        Loss_D: 1.0228  Loss_G: 7.4405  D(x): 0.8487    D(G(z)): 0.4886 / 0.0024
+[0/5][1050/1583]        Loss_D: 0.5900  Loss_G: 6.3998  D(x): 0.9623    D(G(z)): 0.3919 / 0.0028
+[0/5][1100/1583]        Loss_D: 0.5854  Loss_G: 2.9579  D(x): 0.7190    D(G(z)): 0.1235 / 0.0852
+[0/5][1150/1583]        Loss_D: 1.0639  Loss_G: 1.7561  D(x): 0.4994    D(G(z)): 0.0438 / 0.2799
+[0/5][1200/1583]        Loss_D: 0.3912  Loss_G: 4.4182  D(x): 0.8533    D(G(z)): 0.1451 / 0.0247
+[0/5][1250/1583]        Loss_D: 0.6060  Loss_G: 4.8410  D(x): 0.9388    D(G(z)): 0.3454 / 0.0172
+[0/5][1300/1583]        Loss_D: 0.5169  Loss_G: 4.0113  D(x): 0.8383    D(G(z)): 0.2275 / 0.0304
+[0/5][1350/1583]        Loss_D: 0.4558  Loss_G: 3.7729  D(x): 0.8541    D(G(z)): 0.2019 / 0.0352
+[0/5][1400/1583]        Loss_D: 0.4260  Loss_G: 4.1575  D(x): 0.8037    D(G(z)): 0.1138 / 0.0389
+[0/5][1450/1583]        Loss_D: 0.7148  Loss_G: 4.2337  D(x): 0.8808    D(G(z)): 0.3603 / 0.0303
+[0/5][1500/1583]        Loss_D: 0.5411  Loss_G: 3.8393  D(x): 0.8042    D(G(z)): 0.1919 / 0.0346
+[0/5][1550/1583]        Loss_D: 0.6216  Loss_G: 5.0527  D(x): 0.8572    D(G(z)): 0.2995 / 0.0126
+[1/5][0/1583]   Loss_D: 0.9827  Loss_G: 8.5834  D(x): 0.9368    D(G(z)): 0.5094 / 0.0007
+[1/5][50/1583]  Loss_D: 0.4564  Loss_G: 3.3736  D(x): 0.7583    D(G(z)): 0.1001 / 0.0628
+[1/5][100/1583] Loss_D: 0.5739  Loss_G: 5.8253  D(x): 0.9068    D(G(z)): 0.3120 / 0.0062
+[1/5][150/1583] Loss_D: 0.4005  Loss_G: 3.3281  D(x): 0.7867    D(G(z)): 0.0761 / 0.0658
+[1/5][200/1583] Loss_D: 0.3636  Loss_G: 3.5952  D(x): 0.7776    D(G(z)): 0.0553 / 0.0519
+[1/5][250/1583] Loss_D: 0.3391  Loss_G: 3.9116  D(x): 0.9383    D(G(z)): 0.2056 / 0.0338
+[1/5][300/1583] Loss_D: 0.4424  Loss_G: 3.4674  D(x): 0.7582    D(G(z)): 0.0808 / 0.0544
+[1/5][350/1583] Loss_D: 0.2903  Loss_G: 4.1958  D(x): 0.9183    D(G(z)): 0.1577 / 0.0271
+[1/5][400/1583] Loss_D: 0.3577  Loss_G: 4.3270  D(x): 0.8957    D(G(z)): 0.1859 / 0.0225
+[1/5][450/1583] Loss_D: 0.3834  Loss_G: 4.5698  D(x): 0.8365    D(G(z)): 0.1348 / 0.0253
+[1/5][500/1583] Loss_D: 0.4905  Loss_G: 5.1043  D(x): 0.9000    D(G(z)): 0.2773 / 0.0096
+[1/5][550/1583] Loss_D: 0.3614  Loss_G: 3.6896  D(x): 0.8551    D(G(z)): 0.1357 / 0.0410
+[1/5][600/1583] Loss_D: 0.6627  Loss_G: 2.1314  D(x): 0.6406    D(G(z)): 0.0888 / 0.1690
+[1/5][650/1583] Loss_D: 0.5405  Loss_G: 3.7094  D(x): 0.8055    D(G(z)): 0.2316 / 0.0367
+[1/5][700/1583] Loss_D: 0.3457  Loss_G: 3.4739  D(x): 0.8545    D(G(z)): 0.1307 / 0.0510
+[1/5][750/1583] Loss_D: 1.1067  Loss_G: 6.9529  D(x): 0.8903    D(G(z)): 0.5309 / 0.0036
+[1/5][800/1583] Loss_D: 0.4212  Loss_G: 4.1740  D(x): 0.8905    D(G(z)): 0.2281 / 0.0253
+[1/5][850/1583] Loss_D: 0.5252  Loss_G: 2.6637  D(x): 0.8178    D(G(z)): 0.2166 / 0.1186
+[1/5][900/1583] Loss_D: 0.3098  Loss_G: 3.3871  D(x): 0.8519    D(G(z)): 0.1130 / 0.0545
+[1/5][950/1583] Loss_D: 0.4049  Loss_G: 2.6219  D(x): 0.7656    D(G(z)): 0.0526 / 0.1059
+[1/5][1000/1583]        Loss_D: 0.8184  Loss_G: 5.4065  D(x): 0.9539    D(G(z)): 0.4823 / 0.0079
+[1/5][1050/1583]        Loss_D: 0.5498  Loss_G: 3.1468  D(x): 0.7646    D(G(z)): 0.1834 / 0.0668
+[1/5][1100/1583]        Loss_D: 0.2852  Loss_G: 3.6850  D(x): 0.8557    D(G(z)): 0.0882 / 0.0380
+[1/5][1150/1583]        Loss_D: 0.3581  Loss_G: 4.0160  D(x): 0.8695    D(G(z)): 0.1691 / 0.0297
+[1/5][1200/1583]        Loss_D: 0.4590  Loss_G: 2.5072  D(x): 0.8949    D(G(z)): 0.2490 / 0.1191
+[1/5][1250/1583]        Loss_D: 0.4474  Loss_G: 2.9662  D(x): 0.8073    D(G(z)): 0.1695 / 0.0753
+[1/5][1300/1583]        Loss_D: 0.4709  Loss_G: 2.9839  D(x): 0.8118    D(G(z)): 0.1943 / 0.0716
+[1/5][1350/1583]        Loss_D: 0.4064  Loss_G: 3.2001  D(x): 0.8562    D(G(z)): 0.1857 / 0.0570
+[1/5][1400/1583]        Loss_D: 0.5833  Loss_G: 3.9165  D(x): 0.9227    D(G(z)): 0.3474 / 0.0333
+[1/5][1450/1583]        Loss_D: 1.4076  Loss_G: 1.6400  D(x): 0.3608    D(G(z)): 0.0179 / 0.2518
+[1/5][1500/1583]        Loss_D: 0.4478  Loss_G: 3.3367  D(x): 0.7599    D(G(z)): 0.1115 / 0.0634
+[1/5][1550/1583]        Loss_D: 0.4765  Loss_G: 1.9207  D(x): 0.7558    D(G(z)): 0.1351 / 0.1856
+[2/5][0/1583]   Loss_D: 1.2119  Loss_G: 6.0945  D(x): 0.9451    D(G(z)): 0.6295 / 0.0041
+[2/5][50/1583]  Loss_D: 2.6952  Loss_G: 8.9638  D(x): 0.9808    D(G(z)): 0.8627 / 0.0005
+[2/5][100/1583] Loss_D: 0.4033  Loss_G: 2.5807  D(x): 0.7578    D(G(z)): 0.0751 / 0.1058
+[2/5][150/1583] Loss_D: 0.6088  Loss_G: 3.2352  D(x): 0.7288    D(G(z)): 0.1806 / 0.0635
+[2/5][200/1583] Loss_D: 0.5992  Loss_G: 1.5368  D(x): 0.6645    D(G(z)): 0.1026 / 0.2691
+[2/5][250/1583] Loss_D: 0.6777  Loss_G: 4.6748  D(x): 0.9175    D(G(z)): 0.3931 / 0.0197
+[2/5][300/1583] Loss_D: 0.7959  Loss_G: 0.8329  D(x): 0.5740    D(G(z)): 0.1201 / 0.4960
+[2/5][350/1583] Loss_D: 0.2546  Loss_G: 3.2212  D(x): 0.8803    D(G(z)): 0.1077 / 0.0525
+[2/5][400/1583] Loss_D: 0.3983  Loss_G: 2.8516  D(x): 0.8181    D(G(z)): 0.1493 / 0.0763
+[2/5][450/1583] Loss_D: 1.4702  Loss_G: 4.5811  D(x): 0.9871    D(G(z)): 0.6912 / 0.0203
+[2/5][500/1583] Loss_D: 0.4359  Loss_G: 3.8455  D(x): 0.8980    D(G(z)): 0.2543 / 0.0317
+[2/5][550/1583] Loss_D: 0.4818  Loss_G: 2.9661  D(x): 0.8612    D(G(z)): 0.2472 / 0.0738
+[2/5][600/1583] Loss_D: 0.9726  Loss_G: 1.3470  D(x): 0.4718    D(G(z)): 0.0472 / 0.3168
+[2/5][650/1583] Loss_D: 0.4647  Loss_G: 3.3313  D(x): 0.8754    D(G(z)): 0.2543 / 0.0501
+[2/5][700/1583] Loss_D: 0.8083  Loss_G: 1.3480  D(x): 0.6053    D(G(z)): 0.1733 / 0.3044
+[2/5][750/1583] Loss_D: 0.4253  Loss_G: 2.7581  D(x): 0.8542    D(G(z)): 0.2092 / 0.0916
+[2/5][800/1583] Loss_D: 0.7601  Loss_G: 0.8802  D(x): 0.5592    D(G(z)): 0.0661 / 0.4535
+[2/5][850/1583] Loss_D: 1.1730  Loss_G: 4.7692  D(x): 0.9240    D(G(z)): 0.5948 / 0.0147
+[2/5][900/1583] Loss_D: 0.3643  Loss_G: 2.7252  D(x): 0.8207    D(G(z)): 0.1339 / 0.0875
+[2/5][950/1583] Loss_D: 0.6540  Loss_G: 3.6358  D(x): 0.9344    D(G(z)): 0.3973 / 0.0374
+[2/5][1000/1583]        Loss_D: 0.4633  Loss_G: 3.1541  D(x): 0.8740    D(G(z)): 0.2561 / 0.0590
+[2/5][1050/1583]        Loss_D: 0.8382  Loss_G: 1.9272  D(x): 0.5878    D(G(z)): 0.1624 / 0.1984
+[2/5][1100/1583]        Loss_D: 0.5729  Loss_G: 2.7665  D(x): 0.7873    D(G(z)): 0.2500 / 0.0796
+[2/5][1150/1583]        Loss_D: 0.7556  Loss_G: 1.1545  D(x): 0.6097    D(G(z)): 0.1312 / 0.3630
+[2/5][1200/1583]        Loss_D: 0.5174  Loss_G: 3.2663  D(x): 0.8944    D(G(z)): 0.3077 / 0.0498
+[2/5][1250/1583]        Loss_D: 0.6210  Loss_G: 2.3986  D(x): 0.7543    D(G(z)): 0.2440 / 0.1137
+[2/5][1300/1583]        Loss_D: 0.6704  Loss_G: 1.0176  D(x): 0.6075    D(G(z)): 0.0953 / 0.4132
+[2/5][1350/1583]        Loss_D: 0.4160  Loss_G: 3.4901  D(x): 0.8784    D(G(z)): 0.2238 / 0.0431
+[2/5][1400/1583]        Loss_D: 2.2111  Loss_G: 5.1102  D(x): 0.9772    D(G(z)): 0.8403 / 0.0097
+[2/5][1450/1583]        Loss_D: 0.8873  Loss_G: 1.3313  D(x): 0.4878    D(G(z)): 0.0394 / 0.3253
+[2/5][1500/1583]        Loss_D: 1.7747  Loss_G: 0.7868  D(x): 0.2532    D(G(z)): 0.0461 / 0.5673
+[2/5][1550/1583]        Loss_D: 0.6559  Loss_G: 1.7415  D(x): 0.6972    D(G(z)): 0.1964 / 0.2107
+[3/5][0/1583]   Loss_D: 0.5087  Loss_G: 3.2402  D(x): 0.8600    D(G(z)): 0.2739 / 0.0525
+[3/5][50/1583]  Loss_D: 1.5233  Loss_G: 0.1584  D(x): 0.3123    D(G(z)): 0.0780 / 0.8634
+[3/5][100/1583] Loss_D: 1.8885  Loss_G: 0.3005  D(x): 0.2178    D(G(z)): 0.0291 / 0.7666
+[3/5][150/1583] Loss_D: 0.6536  Loss_G: 3.3297  D(x): 0.8902    D(G(z)): 0.3668 / 0.0513
+[3/5][200/1583] Loss_D: 0.8478  Loss_G: 1.3355  D(x): 0.5684    D(G(z)): 0.1701 / 0.3328
+[3/5][250/1583] Loss_D: 0.9677  Loss_G: 4.8499  D(x): 0.9500    D(G(z)): 0.5424 / 0.0118
+[3/5][300/1583] Loss_D: 1.2824  Loss_G: 5.1621  D(x): 0.8264    D(G(z)): 0.6010 / 0.0089
+[3/5][350/1583] Loss_D: 0.5773  Loss_G: 2.8821  D(x): 0.8417    D(G(z)): 0.2955 / 0.0746
+[3/5][400/1583] Loss_D: 0.7445  Loss_G: 1.8592  D(x): 0.6193    D(G(z)): 0.1601 / 0.1963
+[3/5][450/1583] Loss_D: 0.6145  Loss_G: 1.5119  D(x): 0.6290    D(G(z)): 0.0882 / 0.2581
+[3/5][500/1583] Loss_D: 1.7479  Loss_G: 0.8936  D(x): 0.2338    D(G(z)): 0.0096 / 0.4758
+[3/5][550/1583] Loss_D: 0.7083  Loss_G: 2.6873  D(x): 0.7402    D(G(z)): 0.2823 / 0.0887
+[3/5][600/1583] Loss_D: 1.5239  Loss_G: 1.3664  D(x): 0.2948    D(G(z)): 0.0407 / 0.3153
+[3/5][650/1583] Loss_D: 0.5745  Loss_G: 1.5595  D(x): 0.6798    D(G(z)): 0.1304 / 0.2511
+[3/5][700/1583] Loss_D: 0.6623  Loss_G: 1.7818  D(x): 0.6948    D(G(z)): 0.2020 / 0.2196
+[3/5][750/1583] Loss_D: 0.6001  Loss_G: 2.5927  D(x): 0.8233    D(G(z)): 0.2992 / 0.0934
+[3/5][800/1583] Loss_D: 0.9380  Loss_G: 3.4074  D(x): 0.9236    D(G(z)): 0.5077 / 0.0535
+[3/5][850/1583] Loss_D: 0.5192  Loss_G: 2.3031  D(x): 0.7753    D(G(z)): 0.1898 / 0.1277
+[3/5][900/1583] Loss_D: 1.0730  Loss_G: 4.6666  D(x): 0.9051    D(G(z)): 0.5624 / 0.0142
+[3/5][950/1583] Loss_D: 0.5699  Loss_G: 2.0747  D(x): 0.7204    D(G(z)): 0.1791 / 0.1609
+[3/5][1000/1583]        Loss_D: 1.1305  Loss_G: 4.5543  D(x): 0.9630    D(G(z)): 0.6047 / 0.0155
+[3/5][1050/1583]        Loss_D: 1.4325  Loss_G: 5.1313  D(x): 0.9275    D(G(z)): 0.6792 / 0.0114
+[3/5][1100/1583]        Loss_D: 0.5538  Loss_G: 3.5067  D(x): 0.9117    D(G(z)): 0.3334 / 0.0421
+[3/5][1150/1583]        Loss_D: 0.6931  Loss_G: 1.9343  D(x): 0.6647    D(G(z)): 0.1838 / 0.1783
+[3/5][1200/1583]        Loss_D: 0.5942  Loss_G: 1.5579  D(x): 0.6757    D(G(z)): 0.1327 / 0.2556
+[3/5][1250/1583]        Loss_D: 0.5164  Loss_G: 2.3426  D(x): 0.8497    D(G(z)): 0.2644 / 0.1211
+[3/5][1300/1583]        Loss_D: 0.4935  Loss_G: 1.9624  D(x): 0.7074    D(G(z)): 0.0974 / 0.1746
+[3/5][1350/1583]        Loss_D: 1.4206  Loss_G: 3.7439  D(x): 0.7228    D(G(z)): 0.5798 / 0.0422
+[3/5][1400/1583]        Loss_D: 0.9364  Loss_G: 1.0955  D(x): 0.4835    D(G(z)): 0.0707 / 0.3798
+[3/5][1450/1583]        Loss_D: 0.6511  Loss_G: 2.8922  D(x): 0.9007    D(G(z)): 0.3758 / 0.0774
+[3/5][1500/1583]        Loss_D: 0.5416  Loss_G: 2.2238  D(x): 0.7409    D(G(z)): 0.1734 / 0.1338
+[3/5][1550/1583]        Loss_D: 0.6149  Loss_G: 1.8527  D(x): 0.6290    D(G(z)): 0.0749 / 0.2041
+[4/5][0/1583]   Loss_D: 0.5095  Loss_G: 2.5964  D(x): 0.8487    D(G(z)): 0.2569 / 0.0962
+[4/5][50/1583]  Loss_D: 0.5049  Loss_G: 2.6096  D(x): 0.7712    D(G(z)): 0.1838 / 0.0999
+[4/5][100/1583] Loss_D: 0.5834  Loss_G: 2.1360  D(x): 0.8028    D(G(z)): 0.2701 / 0.1470
+[4/5][150/1583] Loss_D: 0.5760  Loss_G: 1.9948  D(x): 0.7364    D(G(z)): 0.1884 / 0.1707
+[4/5][200/1583] Loss_D: 0.4821  Loss_G: 3.2664  D(x): 0.9000    D(G(z)): 0.2908 / 0.0491
+[4/5][250/1583] Loss_D: 0.5868  Loss_G: 2.1034  D(x): 0.6496    D(G(z)): 0.0874 / 0.1721
+[4/5][300/1583] Loss_D: 0.5576  Loss_G: 1.9745  D(x): 0.7285    D(G(z)): 0.1676 / 0.1762
+[4/5][350/1583] Loss_D: 1.1799  Loss_G: 4.3716  D(x): 0.9415    D(G(z)): 0.6214 / 0.0193
+[4/5][400/1583] Loss_D: 0.6071  Loss_G: 2.1519  D(x): 0.6844    D(G(z)): 0.1638 / 0.1471
+[4/5][450/1583] Loss_D: 0.5326  Loss_G: 2.7477  D(x): 0.6652    D(G(z)): 0.0534 / 0.0890
+[4/5][500/1583] Loss_D: 0.4801  Loss_G: 3.1974  D(x): 0.8985    D(G(z)): 0.2831 / 0.0543
+[4/5][550/1583] Loss_D: 0.5607  Loss_G: 1.8731  D(x): 0.6889    D(G(z)): 0.1211 / 0.2076
+[4/5][600/1583] Loss_D: 0.9543  Loss_G: 4.2566  D(x): 0.9315    D(G(z)): 0.5299 / 0.0215
+[4/5][650/1583] Loss_D: 0.7797  Loss_G: 1.3848  D(x): 0.5420    D(G(z)): 0.0632 / 0.3020
+[4/5][700/1583] Loss_D: 0.9306  Loss_G: 4.2515  D(x): 0.8715    D(G(z)): 0.4947 / 0.0208
+[4/5][750/1583] Loss_D: 0.7030  Loss_G: 1.7028  D(x): 0.7019    D(G(z)): 0.2341 / 0.2262
+[4/5][800/1583] Loss_D: 0.5529  Loss_G: 1.7804  D(x): 0.6805    D(G(z)): 0.1040 / 0.2134
+[4/5][850/1583] Loss_D: 0.9646  Loss_G: 3.3082  D(x): 0.8924    D(G(z)): 0.5053 / 0.0542
+[4/5][900/1583] Loss_D: 0.5933  Loss_G: 4.2206  D(x): 0.9231    D(G(z)): 0.3693 / 0.0209
+[4/5][950/1583] Loss_D: 0.4591  Loss_G: 2.7723  D(x): 0.8352    D(G(z)): 0.2155 / 0.0830
+[4/5][1000/1583]        Loss_D: 0.5453  Loss_G: 2.4061  D(x): 0.8200    D(G(z)): 0.2580 / 0.1124
+[4/5][1050/1583]        Loss_D: 0.8195  Loss_G: 0.7416  D(x): 0.5142    D(G(z)): 0.0618 / 0.5229
+[4/5][1100/1583]        Loss_D: 0.9527  Loss_G: 1.4565  D(x): 0.4843    D(G(z)): 0.0890 / 0.2981
+[4/5][1150/1583]        Loss_D: 0.5892  Loss_G: 3.0434  D(x): 0.8710    D(G(z)): 0.3266 / 0.0655
+[4/5][1200/1583]        Loss_D: 0.5043  Loss_G: 2.6558  D(x): 0.7844    D(G(z)): 0.1954 / 0.0976
+[4/5][1250/1583]        Loss_D: 1.1577  Loss_G: 2.5672  D(x): 0.8316    D(G(z)): 0.5330 / 0.1104
+[4/5][1300/1583]        Loss_D: 0.6043  Loss_G: 2.7247  D(x): 0.7927    D(G(z)): 0.2732 / 0.0845
+[4/5][1350/1583]        Loss_D: 0.8843  Loss_G: 0.7133  D(x): 0.4824    D(G(z)): 0.0570 / 0.5286
+[4/5][1400/1583]        Loss_D: 0.4754  Loss_G: 2.0681  D(x): 0.7479    D(G(z)): 0.1400 / 0.1608
+[4/5][1450/1583]        Loss_D: 0.6642  Loss_G: 1.5559  D(x): 0.6596    D(G(z)): 0.1554 / 0.2506
+[4/5][1500/1583]        Loss_D: 0.5086  Loss_G: 2.8231  D(x): 0.8270    D(G(z)): 0.2459 / 0.0769
+[4/5][1550/1583]        Loss_D: 0.5786  Loss_G: 3.4217  D(x): 0.9086    D(G(z)): 0.3488 / 0.0448
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Finally, lets check out how we did. Here, we will look at three
+different results. First, we will see how D and G’s losses changed
+during training. Second, we will visualize G’s output on the fixed_noise
+batch for every epoch. And third, we will look at a batch of real data
+next to a batch of fake data from G.</p>
+<p><strong>Loss versus training iteration</strong></p>
+<p>Below is a plot of D &amp; G’s losses versus training iterations.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Generator and Discriminator Loss During Training&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">G_losses</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;G&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">D_losses</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Loss&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/sphx_glr_dcgan_faces_tutorial_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_dcgan_faces_tutorial_002.png" />
+<p><strong>Visualization of G’s progression</strong></p>
+<p>Remember how we saved the generator’s output on the fixed_noise batch
+after every epoch of training. Now, we can visualize the training
+progression of G with an animation. Press the play button to start the
+animation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#%%capture</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">ims</span> <span class="o">=</span> <span class="p">[[</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">i</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)),</span> <span class="n">animated</span><span class="o">=</span><span class="bp">True</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">img_list</span><span class="p">]</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">ArtistAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">ims</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">repeat_delay</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="n">ani</span><span class="o">.</span><span class="n">to_jshtml</span><span class="p">())</span>
+</pre></div>
+</div>
+<img alt="../_images/sphx_glr_dcgan_faces_tutorial_003.png" class="sphx-glr-single-img" src="../_images/sphx_glr_dcgan_faces_tutorial_003.png" />
+<p><strong>Real Images vs.&nbsp;Fake Images</strong></p>
+<p>Finally, lets take a look at some real images and fake images side by
+side.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab a batch of real images from the dataloader</span>
+<span class="n">real_batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">dataloader</span><span class="p">))</span>
+
+<span class="c1"># Plot the real images</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Real Images&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">vutils</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">real_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)[:</span><span class="mi">64</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">(),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
+
+<span class="c1"># Plot the fake images from the last epoch</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Fake Images&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">img_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/sphx_glr_dcgan_faces_tutorial_004.png" class="sphx-glr-single-img" src="../_images/sphx_glr_dcgan_faces_tutorial_004.png" />
+</div>
+<div class="section" id="where-to-go-next">
+<h2>Where to Go Next<a class="headerlink" href="#where-to-go-next" title="Permalink to this headline">¶</a></h2>
+<p>We have reached the end of our journey, but there are several places you
+could go from here. You could:</p>
+<ul class="simple">
+<li>Train for longer to see how good the results get</li>
+<li>Modify this model to take a different dataset and possibly change the
+size of the images and the model architecture</li>
+<li>Check out some other cool GAN projects
+<a class="reference external" href="https://github.com/nashory/gans-awesome-applications">here</a></li>
+<li>Create GANs that generate
+<a class="reference external" href="https://deepmind.com/blog/wavenet-generative-model-raw-audio/">music</a></li>
+</ul>
+<p><strong>Total running time of the script:</strong> ( 710 minutes  55.717 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-beginner-dcgan-faces-tutorial-py">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../_downloads/cbfa027135a6418f284281a8345cb2d1/dcgan_faces_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">dcgan_faces_tutorial.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../_downloads/7fe94f3365242f74135f5ccf79806888/dcgan_faces_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">dcgan_faces_tutorial.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../intermediate/reinforcement_q_learning.html" class="btn btn-neutral float-right" title="Reinforcement Learning (DQN) Tutorial" accesskey="n" rel="next">Next <img src="../_static/images/chevron-right-orange.svg" class="next-page"></a>
+      
+      
+        <a href="../intermediate/seq2seq_translation_tutorial.html" class="btn btn-neutral" title="Translation with a Sequence to Sequence Network and Attention" accesskey="p" rel="prev"><img src="../_static/images/chevron-right-orange.svg" class="previous-page"> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, PyTorch.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">DCGAN Tutorial</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#generative-adversarial-networks">Generative Adversarial Networks</a><ul>
+<li><a class="reference internal" href="#what-is-a-gan">What is a GAN?</a></li>
+<li><a class="reference internal" href="#what-is-a-dcgan">What is a DCGAN?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inputs">Inputs</a></li>
+<li><a class="reference internal" href="#data">Data</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a><ul>
+<li><a class="reference internal" href="#weight-initialization">Weight Initialization</a></li>
+<li><a class="reference internal" href="#generator">Generator</a></li>
+<li><a class="reference internal" href="#discriminator">Discriminator</a></li>
+<li><a class="reference internal" href="#loss-functions-and-optimizers">Loss Functions and Optimizers</a></li>
+<li><a class="reference internal" href="#training">Training</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#results">Results</a></li>
+<li><a class="reference internal" href="#where-to-go-next">Where to Go Next</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script type="text/javascript" src="../_static/jquery.js"></script>
+         <script type="text/javascript" src="../_static/underscore.js"></script>
+         <script type="text/javascript" src="../_static/doctools.js"></script>
+         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90545585-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access comprehensive developer documentation for PyTorch</p>
+          <a class="with-right-arrow" href="https://pytorch.org/docs/stable/index.html">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get in-depth tutorials for beginners and advanced developers</p>
+          <a class="with-right-arrow" href="https://pytorch.org/tutorials">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Resources</h2>
+          <p>Find development resources and get your questions answered</p>
+          <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://pytorch.org/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://pytorch.org/">PyTorch</a></li>
+            <li><a href="https://pytorch.org/get-started">Get Started</a></li>
+            <li><a href="https://pytorch.org/features">Features</a></li>
+            <li><a href="https://pytorch.org/ecosystem">Ecosystem</a></li>
+            <li><a href="https://pytorch.org/blog/">Blog</a></li>
+            <li><a href="https://pytorch.org/resources">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://pytorch.org/support">Support</a></li>
+            <li><a href="https://pytorch.org/tutorials">Tutorials</a></li>
+            <li><a href="https://pytorch.org/docs/stable/index.html">Docs</a></li>
+            <li><a href="https://discuss.pytorch.org" target="_blank">Discuss</a></li>
+            <li><a href="https://github.com/pytorch/pytorch/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://pytorch.slack.com" target="_blank">Slack</a></li>
+            <li><a href="https://github.com/pytorch/pytorch/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <ul>
+            <li class="list-title">Follow Us</li>
+            <li>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="email-subscribe-form validate"
+                  target="_blank"
+                  novalidate>
+                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
+
+                    <div class="clear">
+                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </li>
+          </ul>
+
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com/pytorch" target="_blank" class="facebook"></a>
+            <a href="https://twitter.com/pytorch" target="_blank" class="twitter"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://pytorch.org/" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="#">Get Started</a>
+          </li>
+
+          <li>
+            <a href="#">Features</a>
+          </li>
+
+          <li>
+            <a href="#">Ecosystem</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/blog/">Blog</a>
+          </li>
+
+          <li class="active">
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pytorch/pytorch">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>

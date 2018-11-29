@@ -1,0 +1,1108 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Audio Classifier Tutorial &mdash; PyTorch Tutorials 0.4.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://pytorch.org/" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://pytorch.org/get-started">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/features">Features</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/ecosystem">Ecosystem</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/blog/">Blog</a>
+          </li>
+
+          <li class="active">
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pytorch/pytorch">Github</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="pytorch-body">
+
+   
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+              
+              
+                <div class="version">
+                  0.4.1
+                </div>
+              
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Tutorials" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="deep_learning_60min_blitz.html">Deep Learning with PyTorch: A 60 Minute Blitz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_loading_tutorial.html">Data Loading and Processing Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch_with_examples.html">Learning PyTorch with Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfer_learning_tutorial.html">Transfer Learning Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy_seq2seq_hybrid_frontend_tutorial.html">Deploying a Seq2Seq Model with the Hybrid Frontend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_loading_models.html">Saving and Loading Models</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Image</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="finetuning_torchvision_models_tutorial.html">Finetuning Torchvision Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/spatial_transformer_tutorial.html">Spatial Transformer Networks Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/neural_style_tutorial.html">Neural Transfer Using PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fgsm_tutorial.html">Adversarial Example Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/super_resolution_with_caffe2.html">Transfering a Model from PyTorch to Caffe2 and Mobile using ONNX</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Text</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chatbot_tutorial.html">Chatbot Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/char_rnn_generation_tutorial.html">Generating Names with a Character-Level RNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/char_rnn_classification_tutorial.html">Classifying Names with a Character-Level RNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deep_learning_nlp_tutorial.html">Deep Learning for NLP with Pytorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/seq2seq_translation_tutorial.html">Translation with a Sequence to Sequence Network and Attention</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Generative</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dcgan_faces_tutorial.html">DCGAN Tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reinforcement Learning</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/reinforcement_q_learning.html">Reinforcement Learning (DQN) Tutorial</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Extending PyTorch</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/numpy_extensions_tutorial.html">Creating Extensions Using numpy and scipy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/cpp_extension.html">Custom C++ and CUDA Extensions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Production Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intermediate/dist_tuto.html">Writing Distributed Applications with PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/ONNXLive.html">ONNX Live Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/cpp_export.html">Loading a PyTorch Model in C++</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+      <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+        <div class="pytorch-breadcrumbs-wrapper">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Tutorials
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Audio Classifier Tutorial</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/beginner/audio_classifier_tutorial.rst.txt" rel="nofollow"><img src="../_static/images/view-page-source-icon.svg"></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+        </div>
+
+        <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+          Shortcuts
+        </div>
+      </div>
+
+      <section data-toggle="wy-nav-shift" id="pytorch-content-wrap" class="pytorch-content-wrap">
+        <div class="pytorch-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" id="pytorch-article" class="pytorch-article">
+              
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Click <a class="reference internal" href="#sphx-glr-download-beginner-audio-classifier-tutorial-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="audio-classifier-tutorial">
+<span id="sphx-glr-beginner-audio-classifier-tutorial-py"></span><h1>Audio Classifier Tutorial<a class="headerlink" href="#audio-classifier-tutorial" title="Permalink to this headline">¶</a></h1>
+<p><strong>Author</strong>: <a class="reference external" href="https://github.com/winston6">Winston Herring</a></p>
+<p>This tutorial will show you how to correctly format an audio dataset and
+then train/test an audio classifier network on the dataset. First, let’s
+import the common torch packages as well as <code class="docutils literal notranslate"><span class="pre">torchaudio</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. <code class="docutils literal notranslate"><span class="pre">torchaudio</span></code> is available <a class="reference external" href="https://github.com/pytorch/audio">here</a>
+and can be installed by following the
+instructions on the website.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="kn">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="kn">as</span> <span class="nn">F</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="kn">as</span> <span class="nn">optim</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">torchaudio</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>Let’s check if a CUDA GPU is available and select our device. Running
+the network on a GPU will greatly decrease the training/testing runtime.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">&quot;cuda&quot;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>cpu
+</pre></div>
+</div>
+<div class="section" id="importing-the-dataset">
+<h2>Importing the Dataset<a class="headerlink" href="#importing-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>We will use the UrbanSound8K dataset to train our network. It is
+available for free <a class="reference external" href="https://urbansounddataset.weebly.com/">here</a> and contains
+10 audio classes with over 8000 audio samples! Once you have downloaded
+the compressed dataset, extract it to your current working directory.
+First, we will look at the csv file that provides information about the
+individual sound files. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> allows us to open the csv file and
+use <code class="docutils literal notranslate"><span class="pre">.iloc()</span></code> to access the data within it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">csvData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./UrbanSound8K/metadata/UrbanSound8K.csv&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">csvData</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>slice_file_name    100032-3-0-0.wav
+fsID                         100032
+start                             0
+end                        0.317551
+salience                          1
+fold                              5
+classID                           3
+class                      dog_bark
+Name: 0, dtype: object
+</pre></div>
+</div>
+<p>The 10 audio classes in the UrbanSound8K dataset are air_conditioner,
+car_horn, children_playing, dog_bark, drilling, enginge_idling,
+gun_shot, jackhammer, siren, and street_music. Let’s play a couple files
+and see what they sound like. The first file is street music and the
+second is an air conditioner.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="kn">as</span> <span class="nn">ipd</span>
+<span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="s1">&#39;./UrbanSound8K/audio/fold1/108041-9-0-5.wav&#39;</span><span class="p">)</span>
+
+<span class="n">ipd</span><span class="o">.</span><span class="n">Audio</span><span class="p">(</span><span class="s1">&#39;./UrbanSound8K/audio/fold5/100852-0-0-19.wav&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="formatting-the-data">
+<h2>Formatting the Data<a class="headerlink" href="#formatting-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know the format of the csv file entries, we can construct
+our dataset. We will create a rapper class for our dataset using
+<code class="docutils literal notranslate"><span class="pre">torch.utils.data.Dataset</span></code> that will handle loading the files and
+performing some formatting steps. The UrbanSound8K dataset is separated
+into 10 folders. We will use the data from 9 of these folders to train
+our network and then use the 10th folder to test the network. The rapper
+class will store the file names, labels, and folder numbers of the audio
+files in the inputted folder list when initialized. The actual loading
+and formatting steps will happen in the access function <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>, we use <code class="docutils literal notranslate"><span class="pre">torchaudio.load()</span></code> to convert the wav
+files to tensors. <code class="docutils literal notranslate"><span class="pre">torchaudio.load()</span></code> returns a tuple containing the
+newly created tensor along with the sampling frequency of the audio file
+(44.1kHz for UrbanSound8K). The dataset uses two channels for audio so
+we will use <code class="docutils literal notranslate"><span class="pre">torchaudio.transforms.DownmixMono()</span></code> to convert the audio
+data to one channel. Next, we need to format the audio data. The network
+we will make takes an input size of 32,000, while most of the audio
+files have well over 100,000 samples. The UrbanSound8K audio is sampled
+at 44.1kHz, so 32,000 samples only covers around 700 milliseconds. By
+downsampling the audio to aproximately 8kHz, we can represent 4 seconds
+with the 32,000 samples. This downsampling is achieved by taking every
+fifth sample of the original audio tensor. Not every audio tensor is
+long enough to handle the downsampling so these tensors will need to be
+padded with zeros. The minimum length that won’t require padding is
+160,000 samples.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UrbanSoundDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+<span class="c1">#rapper for the UrbanSound8K dataset</span>
+    <span class="c1"># Argument List</span>
+    <span class="c1">#  path to the UrbanSound8K csv file</span>
+    <span class="c1">#  path to the UrbanSound8K audio files</span>
+    <span class="c1">#  list of folders to use in the dataset</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">folderList</span><span class="p">):</span>
+        <span class="n">csvData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+        <span class="c1">#initialize lists to hold file names, labels, and folder numbers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">folders</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#loop through the csv entries and only add entries from folders in the folder list</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">csvData</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">csvData</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="ow">in</span> <span class="n">folderList</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">file_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">csvData</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">csvData</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">folders</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">csvData</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">file_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mixer</span> <span class="o">=</span> <span class="n">torchaudio</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">DownmixMono</span><span class="p">()</span> <span class="c1">#UrbanSound8K uses two channels, this will convert them to one</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">folderList</span> <span class="o">=</span> <span class="n">folderList</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="c1">#format the file path and load the file</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">+</span> <span class="s2">&quot;fold&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">folders</span><span class="p">[</span><span class="n">index</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_names</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">sound</span> <span class="o">=</span> <span class="n">torchaudio</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="c1">#load returns a tensor with the sound data and the sampling frequency (44.1kHz for UrbanSound8K)</span>
+        <span class="n">soundData</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mixer</span><span class="p">(</span><span class="n">sound</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1">#downsample the audio to ~8kHz</span>
+        <span class="n">tempData</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">160000</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="c1">#tempData accounts for audio clips that are too short</span>
+        <span class="k">if</span> <span class="n">soundData</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">160000</span><span class="p">:</span>
+            <span class="n">tempData</span><span class="p">[:</span><span class="n">soundData</span><span class="o">.</span><span class="n">numel</span><span class="p">()]</span> <span class="o">=</span> <span class="n">soundData</span><span class="p">[:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tempData</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">soundData</span><span class="p">[:</span><span class="mi">160000</span><span class="p">]</span>
+
+        <span class="n">soundData</span> <span class="o">=</span> <span class="n">tempData</span>
+        <span class="n">soundFormatted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">32000</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">soundFormatted</span><span class="p">[:</span><span class="mi">32000</span><span class="p">]</span> <span class="o">=</span> <span class="n">soundData</span><span class="p">[::</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#take every fifth sample of soundData</span>
+        <span class="n">soundFormatted</span> <span class="o">=</span> <span class="n">soundFormatted</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">soundFormatted</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_names</span><span class="p">)</span>
+
+
+<span class="n">csv_path</span> <span class="o">=</span> <span class="s1">&#39;./UrbanSound8K/metadata/UrbanSound8K.csv&#39;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;./UrbanSound8K/audio/&#39;</span>
+
+<span class="n">train_set</span> <span class="o">=</span> <span class="n">UrbanSoundDataset</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">test_set</span> <span class="o">=</span> <span class="n">UrbanSoundDataset</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Train set size: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train_set</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Test set size: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">test_set</span><span class="p">)))</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num_workers&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;pin_memory&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">}</span> <span class="k">if</span> <span class="n">device</span> <span class="o">==</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">else</span> <span class="p">{}</span> <span class="c1">#needed for using datasets on gpu</span>
+
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_set</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_set</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">shuffle</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Train set size: 7895
+Test set size: 837
+</pre></div>
+</div>
+</div>
+<div class="section" id="define-the-network">
+<h2>Define the Network<a class="headerlink" href="#define-the-network" title="Permalink to this headline">¶</a></h2>
+<p>For this tutorial we will use a convolutional neural network to process
+the raw audio data. Usually more advanced transforms are applied to the
+audio data, however CNNs can be used to accurately process the raw data.
+The specific architecture is modeled after the M5 network architecture
+described in <a class="reference external" href="https://arxiv.org/pdf/1610.00087.pdf">https://arxiv.org/pdf/1610.00087.pdf</a>. An important aspect
+of models processing raw audio data is the receptive field of their
+first layer’s filters. Our model’s first filter is length 80 so when
+processing audio sampled at 8kHz the receptive field is around 10ms.
+This size is similar to speech processing applications that often use
+receptive fields ranging from 20ms to 40ms.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Net</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Net</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool1d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool1d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="mi">256</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool1d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv1d</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pool4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool1d</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avgPool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">AvgPool1d</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c1">#input should be 512x30 so this outputs a 512x1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn3</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bn4</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pool4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">avgPool</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#change the 512x1 to 1x512</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Net</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Net(
+  (conv1): Conv1d(1, 128, kernel_size=(80,), stride=(4,))
+  (bn1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (pool1): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv1d(128, 128, kernel_size=(3,), stride=(1,))
+  (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (pool2): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+  (conv3): Conv1d(128, 256, kernel_size=(3,), stride=(1,))
+  (bn3): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (pool3): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+  (conv4): Conv1d(256, 512, kernel_size=(3,), stride=(1,))
+  (bn4): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (pool4): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+  (avgPool): AvgPool1d(kernel_size=(30,), stride=(30,), padding=(0,))
+  (fc1): Linear(in_features=512, out_features=10, bias=True)
+)
+</pre></div>
+</div>
+<p>We will use the same optimization technique used in the paper, an Adam
+optimizer with weight decay set to 0.0001. At first, we will train with
+a learning rate of 0.01, but we will use a <code class="docutils literal notranslate"><span class="pre">scheduler</span></code> to decrease it
+to 0.001 during training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">weight_decay</span> <span class="o">=</span> <span class="mf">0.0001</span><span class="p">)</span>
+<span class="n">scheduler</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">lr_scheduler</span><span class="o">.</span><span class="n">StepLR</span><span class="p">(</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">step_size</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">gamma</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="training-and-testing-the-network">
+<h2>Training and Testing the Network<a class="headerlink" href="#training-and-testing-the-network" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s define a training function that will feed our training data
+into the model and perform the backward pass and optimization steps.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_loader</span><span class="p">):</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">()</span> <span class="c1">#set requires_grad to True for training</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">#original output dimensions are batchSizex1x10</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">nll_loss</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">target</span><span class="p">)</span> <span class="c1">#the loss functions expects a batchSizex10 input</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">batch_idx</span> <span class="o">%</span> <span class="n">log_interval</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1">#print training stats</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Train Epoch: {} [{}/{} ({:.0f}%)]</span><span class="se">\t</span><span class="s1">Loss: {:.6f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">epoch</span><span class="p">,</span> <span class="n">batch_idx</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">),</span>
+                <span class="mf">100.</span> <span class="o">*</span> <span class="n">batch_idx</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">),</span> <span class="n">loss</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Now that we have a training function, we need to make one for testing
+the networks accuracy. We will set the model to <code class="docutils literal notranslate"><span class="pre">eval()</span></code> mode and then
+run inference on the test dataset. Calling <code class="docutils literal notranslate"><span class="pre">eval()</span></code> sets the training
+variable in all modules in the network to false. Certain layers like
+batch normalization and dropout layers behave differently during
+training so this step is crucial for getting correct results.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">data</span><span class="p">,</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># get the index of the max log-probability</span>
+        <span class="n">correct</span> <span class="o">+=</span> <span class="n">pred</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">target</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Test set: Accuracy: {}/{} ({:.0f}%)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">correct</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">),</span>
+        <span class="mf">100.</span> <span class="o">*</span> <span class="n">correct</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Finally, we can train and test the network. We will train the network
+for ten epochs then reduce the learn rate and train for ten more epochs.
+The network will be tested after each epoch to see how the accuracy
+varies during the training.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">log_interval</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">41</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">==</span> <span class="mi">31</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;First round of training complete. Setting learn rate to 0.001.&quot;</span><span class="p">)</span>
+    <span class="n">scheduler</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">train</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
+    <span class="n">test</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epoch</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Train Epoch: 1 [0/7895 (0%)]    Loss: 2.284853
+Train Epoch: 1 [2560/7895 (32%)]        Loss: 1.949834
+Train Epoch: 1 [5120/7895 (65%)]        Loss: 1.729814
+Train Epoch: 1 [7680/7895 (97%)]        Loss: 1.537771
+
+Test set: Accuracy: 292/837 (35%)
+
+Train Epoch: 2 [0/7895 (0%)]    Loss: 1.463395
+Train Epoch: 2 [2560/7895 (32%)]        Loss: 1.633366
+Train Epoch: 2 [5120/7895 (65%)]        Loss: 1.362624
+Train Epoch: 2 [7680/7895 (97%)]        Loss: 1.391326
+
+Test set: Accuracy: 301/837 (36%)
+
+Train Epoch: 3 [0/7895 (0%)]    Loss: 1.422005
+Train Epoch: 3 [2560/7895 (32%)]        Loss: 1.262934
+Train Epoch: 3 [5120/7895 (65%)]        Loss: 1.216967
+Train Epoch: 3 [7680/7895 (97%)]        Loss: 1.089082
+
+Test set: Accuracy: 437/837 (52%)
+
+Train Epoch: 4 [0/7895 (0%)]    Loss: 1.275825
+Train Epoch: 4 [2560/7895 (32%)]        Loss: 1.099936
+Train Epoch: 4 [5120/7895 (65%)]        Loss: 1.205456
+Train Epoch: 4 [7680/7895 (97%)]        Loss: 1.051926
+
+Test set: Accuracy: 319/837 (38%)
+
+Train Epoch: 5 [0/7895 (0%)]    Loss: 1.047232
+Train Epoch: 5 [2560/7895 (32%)]        Loss: 0.973920
+Train Epoch: 5 [5120/7895 (65%)]        Loss: 1.067568
+Train Epoch: 5 [7680/7895 (97%)]        Loss: 1.077009
+
+Test set: Accuracy: 416/837 (50%)
+
+Train Epoch: 6 [0/7895 (0%)]    Loss: 0.952212
+Train Epoch: 6 [2560/7895 (32%)]        Loss: 1.081723
+Train Epoch: 6 [5120/7895 (65%)]        Loss: 0.928222
+Train Epoch: 6 [7680/7895 (97%)]        Loss: 1.068011
+
+Test set: Accuracy: 398/837 (48%)
+
+Train Epoch: 7 [0/7895 (0%)]    Loss: 0.991526
+Train Epoch: 7 [2560/7895 (32%)]        Loss: 0.880558
+Train Epoch: 7 [5120/7895 (65%)]        Loss: 1.248609
+Train Epoch: 7 [7680/7895 (97%)]        Loss: 0.799157
+
+Test set: Accuracy: 390/837 (47%)
+
+Train Epoch: 8 [0/7895 (0%)]    Loss: 0.739843
+Train Epoch: 8 [2560/7895 (32%)]        Loss: 0.779489
+Train Epoch: 8 [5120/7895 (65%)]        Loss: 0.786356
+Train Epoch: 8 [7680/7895 (97%)]        Loss: 0.868508
+
+Test set: Accuracy: 373/837 (45%)
+
+Train Epoch: 9 [0/7895 (0%)]    Loss: 0.648461
+Train Epoch: 9 [2560/7895 (32%)]        Loss: 0.873177
+Train Epoch: 9 [5120/7895 (65%)]        Loss: 0.890972
+Train Epoch: 9 [7680/7895 (97%)]        Loss: 0.783597
+
+Test set: Accuracy: 440/837 (53%)
+
+Train Epoch: 10 [0/7895 (0%)]   Loss: 0.863209
+Train Epoch: 10 [2560/7895 (32%)]       Loss: 0.747879
+Train Epoch: 10 [5120/7895 (65%)]       Loss: 0.790318
+Train Epoch: 10 [7680/7895 (97%)]       Loss: 0.757224
+
+Test set: Accuracy: 376/837 (45%)
+
+Train Epoch: 11 [0/7895 (0%)]   Loss: 0.694622
+Train Epoch: 11 [2560/7895 (32%)]       Loss: 0.854915
+Train Epoch: 11 [5120/7895 (65%)]       Loss: 0.732393
+Train Epoch: 11 [7680/7895 (97%)]       Loss: 0.750876
+
+Test set: Accuracy: 449/837 (54%)
+
+Train Epoch: 12 [0/7895 (0%)]   Loss: 0.574310
+Train Epoch: 12 [2560/7895 (32%)]       Loss: 0.636692
+Train Epoch: 12 [5120/7895 (65%)]       Loss: 0.681796
+Train Epoch: 12 [7680/7895 (97%)]       Loss: 0.994882
+
+Test set: Accuracy: 442/837 (53%)
+
+Train Epoch: 13 [0/7895 (0%)]   Loss: 0.603140
+Train Epoch: 13 [2560/7895 (32%)]       Loss: 0.840664
+Train Epoch: 13 [5120/7895 (65%)]       Loss: 0.574130
+Train Epoch: 13 [7680/7895 (97%)]       Loss: 0.715530
+
+Test set: Accuracy: 403/837 (48%)
+
+Train Epoch: 14 [0/7895 (0%)]   Loss: 0.573577
+Train Epoch: 14 [2560/7895 (32%)]       Loss: 0.580175
+Train Epoch: 14 [5120/7895 (65%)]       Loss: 0.722422
+Train Epoch: 14 [7680/7895 (97%)]       Loss: 0.721919
+
+Test set: Accuracy: 466/837 (56%)
+
+Train Epoch: 15 [0/7895 (0%)]   Loss: 0.659406
+Train Epoch: 15 [2560/7895 (32%)]       Loss: 0.658080
+Train Epoch: 15 [5120/7895 (65%)]       Loss: 0.771672
+Train Epoch: 15 [7680/7895 (97%)]       Loss: 0.860583
+
+Test set: Accuracy: 436/837 (52%)
+
+Train Epoch: 16 [0/7895 (0%)]   Loss: 0.726429
+Train Epoch: 16 [2560/7895 (32%)]       Loss: 0.688471
+Train Epoch: 16 [5120/7895 (65%)]       Loss: 0.590429
+Train Epoch: 16 [7680/7895 (97%)]       Loss: 0.570420
+
+Test set: Accuracy: 426/837 (51%)
+
+Train Epoch: 17 [0/7895 (0%)]   Loss: 0.653021
+Train Epoch: 17 [2560/7895 (32%)]       Loss: 0.721645
+Train Epoch: 17 [5120/7895 (65%)]       Loss: 0.428460
+Train Epoch: 17 [7680/7895 (97%)]       Loss: 0.618644
+
+Test set: Accuracy: 433/837 (52%)
+
+Train Epoch: 18 [0/7895 (0%)]   Loss: 0.742365
+Train Epoch: 18 [2560/7895 (32%)]       Loss: 0.449569
+Train Epoch: 18 [5120/7895 (65%)]       Loss: 0.613667
+Train Epoch: 18 [7680/7895 (97%)]       Loss: 0.601058
+
+Test set: Accuracy: 328/837 (39%)
+
+Train Epoch: 19 [0/7895 (0%)]   Loss: 0.635563
+Train Epoch: 19 [2560/7895 (32%)]       Loss: 0.499531
+Train Epoch: 19 [5120/7895 (65%)]       Loss: 0.424046
+Train Epoch: 19 [7680/7895 (97%)]       Loss: 0.467643
+
+Test set: Accuracy: 507/837 (61%)
+
+Train Epoch: 20 [0/7895 (0%)]   Loss: 0.499685
+Train Epoch: 20 [2560/7895 (32%)]       Loss: 0.465262
+Train Epoch: 20 [5120/7895 (65%)]       Loss: 0.572017
+Train Epoch: 20 [7680/7895 (97%)]       Loss: 0.750252
+
+Test set: Accuracy: 477/837 (57%)
+
+Train Epoch: 21 [0/7895 (0%)]   Loss: 0.567465
+Train Epoch: 21 [2560/7895 (32%)]       Loss: 0.394492
+Train Epoch: 21 [5120/7895 (65%)]       Loss: 0.401892
+Train Epoch: 21 [7680/7895 (97%)]       Loss: 0.397015
+
+Test set: Accuracy: 524/837 (63%)
+
+Train Epoch: 22 [0/7895 (0%)]   Loss: 0.287112
+Train Epoch: 22 [2560/7895 (32%)]       Loss: 0.467350
+Train Epoch: 22 [5120/7895 (65%)]       Loss: 0.344242
+Train Epoch: 22 [7680/7895 (97%)]       Loss: 0.346526
+
+Test set: Accuracy: 526/837 (63%)
+
+Train Epoch: 23 [0/7895 (0%)]   Loss: 0.273088
+Train Epoch: 23 [2560/7895 (32%)]       Loss: 0.359160
+Train Epoch: 23 [5120/7895 (65%)]       Loss: 0.371598
+Train Epoch: 23 [7680/7895 (97%)]       Loss: 0.390792
+
+Test set: Accuracy: 522/837 (62%)
+
+Train Epoch: 24 [0/7895 (0%)]   Loss: 0.370368
+Train Epoch: 24 [2560/7895 (32%)]       Loss: 0.449148
+Train Epoch: 24 [5120/7895 (65%)]       Loss: 0.332982
+Train Epoch: 24 [7680/7895 (97%)]       Loss: 0.304835
+
+Test set: Accuracy: 510/837 (61%)
+
+Train Epoch: 25 [0/7895 (0%)]   Loss: 0.312122
+Train Epoch: 25 [2560/7895 (32%)]       Loss: 0.415942
+Train Epoch: 25 [5120/7895 (65%)]       Loss: 0.399236
+Train Epoch: 25 [7680/7895 (97%)]       Loss: 0.345261
+
+Test set: Accuracy: 501/837 (60%)
+
+Train Epoch: 26 [0/7895 (0%)]   Loss: 0.447245
+Train Epoch: 26 [2560/7895 (32%)]       Loss: 0.463719
+Train Epoch: 26 [5120/7895 (65%)]       Loss: 0.285352
+Train Epoch: 26 [7680/7895 (97%)]       Loss: 0.364122
+
+Test set: Accuracy: 513/837 (61%)
+
+Train Epoch: 27 [0/7895 (0%)]   Loss: 0.359237
+Train Epoch: 27 [2560/7895 (32%)]       Loss: 0.253231
+Train Epoch: 27 [5120/7895 (65%)]       Loss: 0.343758
+Train Epoch: 27 [7680/7895 (97%)]       Loss: 0.341028
+
+Test set: Accuracy: 510/837 (61%)
+
+Train Epoch: 28 [0/7895 (0%)]   Loss: 0.241075
+Train Epoch: 28 [2560/7895 (32%)]       Loss: 0.333756
+Train Epoch: 28 [5120/7895 (65%)]       Loss: 0.432883
+Train Epoch: 28 [7680/7895 (97%)]       Loss: 0.325999
+
+Test set: Accuracy: 510/837 (61%)
+
+Train Epoch: 29 [0/7895 (0%)]   Loss: 0.231797
+Train Epoch: 29 [2560/7895 (32%)]       Loss: 0.321145
+Train Epoch: 29 [5120/7895 (65%)]       Loss: 0.296925
+Train Epoch: 29 [7680/7895 (97%)]       Loss: 0.317171
+
+Test set: Accuracy: 511/837 (61%)
+
+Train Epoch: 30 [0/7895 (0%)]   Loss: 0.289283
+Train Epoch: 30 [2560/7895 (32%)]       Loss: 0.203936
+Train Epoch: 30 [5120/7895 (65%)]       Loss: 0.255863
+Train Epoch: 30 [7680/7895 (97%)]       Loss: 0.288789
+
+Test set: Accuracy: 495/837 (59%)
+
+First round of training complete. Setting learn rate to 0.001.
+Train Epoch: 31 [0/7895 (0%)]   Loss: 0.284696
+Train Epoch: 31 [2560/7895 (32%)]       Loss: 0.350621
+Train Epoch: 31 [5120/7895 (65%)]       Loss: 0.349131
+Train Epoch: 31 [7680/7895 (97%)]       Loss: 0.257831
+
+Test set: Accuracy: 502/837 (60%)
+
+Train Epoch: 32 [0/7895 (0%)]   Loss: 0.353731
+Train Epoch: 32 [2560/7895 (32%)]       Loss: 0.363207
+Train Epoch: 32 [5120/7895 (65%)]       Loss: 0.409723
+Train Epoch: 32 [7680/7895 (97%)]       Loss: 0.296748
+
+Test set: Accuracy: 505/837 (60%)
+
+Train Epoch: 33 [0/7895 (0%)]   Loss: 0.173053
+Train Epoch: 33 [2560/7895 (32%)]       Loss: 0.290675
+Train Epoch: 33 [5120/7895 (65%)]       Loss: 0.230259
+Train Epoch: 33 [7680/7895 (97%)]       Loss: 0.152119
+
+Test set: Accuracy: 513/837 (61%)
+
+Train Epoch: 34 [0/7895 (0%)]   Loss: 0.275266
+Train Epoch: 34 [2560/7895 (32%)]       Loss: 0.319146
+Train Epoch: 34 [5120/7895 (65%)]       Loss: 0.251575
+Train Epoch: 34 [7680/7895 (97%)]       Loss: 0.410100
+
+Test set: Accuracy: 545/837 (65%)
+
+Train Epoch: 35 [0/7895 (0%)]   Loss: 0.264061
+Train Epoch: 35 [2560/7895 (32%)]       Loss: 0.302047
+Train Epoch: 35 [5120/7895 (65%)]       Loss: 0.206675
+Train Epoch: 35 [7680/7895 (97%)]       Loss: 0.204518
+
+Test set: Accuracy: 504/837 (60%)
+
+Train Epoch: 36 [0/7895 (0%)]   Loss: 0.253776
+Train Epoch: 36 [2560/7895 (32%)]       Loss: 0.270975
+Train Epoch: 36 [5120/7895 (65%)]       Loss: 0.259293
+Train Epoch: 36 [7680/7895 (97%)]       Loss: 0.375933
+
+Test set: Accuracy: 537/837 (64%)
+
+Train Epoch: 37 [0/7895 (0%)]   Loss: 0.264592
+Train Epoch: 37 [2560/7895 (32%)]       Loss: 0.224671
+Train Epoch: 37 [5120/7895 (65%)]       Loss: 0.230064
+Train Epoch: 37 [7680/7895 (97%)]       Loss: 0.192509
+
+Test set: Accuracy: 504/837 (60%)
+
+Train Epoch: 38 [0/7895 (0%)]   Loss: 0.272069
+Train Epoch: 38 [2560/7895 (32%)]       Loss: 0.175334
+Train Epoch: 38 [5120/7895 (65%)]       Loss: 0.250863
+Train Epoch: 38 [7680/7895 (97%)]       Loss: 0.244430
+
+Test set: Accuracy: 509/837 (61%)
+
+Train Epoch: 39 [0/7895 (0%)]   Loss: 0.259585
+Train Epoch: 39 [2560/7895 (32%)]       Loss: 0.245266
+Train Epoch: 39 [5120/7895 (65%)]       Loss: 0.236224
+Train Epoch: 39 [7680/7895 (97%)]       Loss: 0.205286
+
+Test set: Accuracy: 497/837 (59%)
+
+Train Epoch: 40 [0/7895 (0%)]   Loss: 0.242760
+Train Epoch: 40 [2560/7895 (32%)]       Loss: 0.223928
+Train Epoch: 40 [5120/7895 (65%)]       Loss: 0.280704
+Train Epoch: 40 [7680/7895 (97%)]       Loss: 0.322151
+
+Test set: Accuracy: 555/837 (66%)
+</pre></div>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>If trained on 9 folders, the network should be more than 50% accurate by
+the end of the training process. Training on less folders will result in
+a lower overall accuracy but may be necessary if long runtimes are a
+problem. Greater accuracies can be achieved using deeper CNNs at the
+expense of a larger memory footprint.</p>
+<p>For more advanced audio applications, such as speech recognition,
+recurrent neural networks (RNNs) are commonly used. There are also other
+data preprocessing methods, such as finding the mel frequency cepstral
+coefficients (MFCC), that can reduce the size of the dataset.</p>
+<p><strong>Total running time of the script:</strong> ( 363 minutes  59.286 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-beginner-audio-classifier-tutorial-py">
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../_downloads/4184280570cd85cf9111a150a5858b6b/audio_classifier_tutorial.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">audio_classifier_tutorial.py</span></code></a></div>
+<div class="sphx-glr-download docutils container">
+<a class="reference download internal" download="" href="../_downloads/e9b525bce2cdb0151710fecc7db17f11/audio_classifier_tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">audio_classifier_tutorial.ipynb</span></code></a></div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.readthedocs.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+</div>
+
+
+             </article>
+             
+            </div>
+            <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, PyTorch.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              <ul>
+<li><a class="reference internal" href="#">Audio Classifier Tutorial</a><ul>
+<li><a class="reference internal" href="#importing-the-dataset">Importing the Dataset</a></li>
+<li><a class="reference internal" href="#formatting-the-data">Formatting the Data</a></li>
+<li><a class="reference internal" href="#define-the-network">Define the Network</a></li>
+<li><a class="reference internal" href="#training-and-testing-the-network">Training and Testing the Network</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  
+
+
+  
+
+     
+       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+         <script type="text/javascript" src="../_static/jquery.js"></script>
+         <script type="text/javascript" src="../_static/underscore.js"></script>
+         <script type="text/javascript" src="../_static/doctools.js"></script>
+         <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+     
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90545585-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Access comprehensive developer documentation for PyTorch</p>
+          <a class="with-right-arrow" href="https://pytorch.org/docs/stable/index.html">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Get in-depth tutorials for beginners and advanced developers</p>
+          <a class="with-right-arrow" href="https://pytorch.org/tutorials">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Resources</h2>
+          <p>Find development resources and get your questions answered</p>
+          <a class="with-right-arrow" href="https://pytorch.org/resources">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://pytorch.org/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://pytorch.org/">PyTorch</a></li>
+            <li><a href="https://pytorch.org/get-started">Get Started</a></li>
+            <li><a href="https://pytorch.org/features">Features</a></li>
+            <li><a href="https://pytorch.org/ecosystem">Ecosystem</a></li>
+            <li><a href="https://pytorch.org/blog/">Blog</a></li>
+            <li><a href="https://pytorch.org/resources">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://pytorch.org/support">Support</a></li>
+            <li><a href="https://pytorch.org/tutorials">Tutorials</a></li>
+            <li><a href="https://pytorch.org/docs/stable/index.html">Docs</a></li>
+            <li><a href="https://discuss.pytorch.org" target="_blank">Discuss</a></li>
+            <li><a href="https://github.com/pytorch/pytorch/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://pytorch.slack.com" target="_blank">Slack</a></li>
+            <li><a href="https://github.com/pytorch/pytorch/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <ul>
+            <li class="list-title">Follow Us</li>
+            <li>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="email-subscribe-form validate"
+                  target="_blank"
+                  novalidate>
+                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
+
+                    <div class="clear">
+                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </li>
+          </ul>
+
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com/pytorch" target="_blank" class="facebook"></a>
+            <a href="https://twitter.com/pytorch" target="_blank" class="twitter"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://pytorch.org/" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="#">Get Started</a>
+          </li>
+
+          <li>
+            <a href="#">Features</a>
+          </li>
+
+          <li>
+            <a href="#">Ecosystem</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/blog/">Blog</a>
+          </li>
+
+          <li class="active">
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pytorch/pytorch">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      mobileMenu.bind();
+      mobileTOC.bind();
+      pytorchAnchors.bind();
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+
+      // Add class to links that have code blocks, since we cannot create links in code blocks
+      $("article.pytorch-article a span.pre").each(function(e) {
+        $(this).closest("a").addClass("has-code");
+      });
+    })
+  </script>
+</body>
+</html>
